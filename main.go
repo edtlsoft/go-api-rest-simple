@@ -150,11 +150,11 @@ func main() {
 
 	router.HandleFunc("/tasks", createTask).Methods("POST")
 
+	router.HandleFunc("/tasks/{id}", updateTask).Methods("PUT")
+
 	router.HandleFunc("/tasks/{id}", getTask).Methods("GET")
 
 	router.HandleFunc("/tasks/{id}", deleteTask).Methods("DELETE")
-
-	router.HandleFunc("/tasks/{id}", updateTask).Methods("PUT")
 
 	log.Fatal(http.ListenAndServe(":3000", router))
 }
